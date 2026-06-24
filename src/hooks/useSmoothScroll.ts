@@ -46,14 +46,18 @@ export function useSmoothScroll(enabled: boolean) {
   }, [enabled])
 }
 
-/** 네비게이션 앵커용: Lenis가 있으면 Lenis로, 없으면 네이티브 스크롤. */
-export function scrollToId(id: string) {
+/**
+ * 네비게이션/앵커용: Lenis가 있으면 Lenis로, 없으면 네이티브 스크롤.
+ * offset: 고정 네비 높이만큼 위로 띄우려면 음수(px)를 넘긴다 (예: -90).
+ */
+export function scrollToId(id: string, offset = 0) {
   const el = document.getElementById(id)
   if (!el) return
   const lenis = (window as Window & { __lenis?: Lenis }).__lenis
   if (lenis) {
-    lenis.scrollTo(el, { offset: 0, duration: 1.2 })
+    lenis.scrollTo(el, { offset, duration: 1.2 })
   } else {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const top = el.getBoundingClientRect().top + window.scrollY + offset
+    window.scrollTo({ top, behavior: 'smooth' })
   }
 }

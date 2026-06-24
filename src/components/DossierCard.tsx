@@ -54,12 +54,13 @@ export default function DossierCard({ d }: { d: Dossier }) {
 
   return (
     <motion.article
+      id={`dossier-${d.id}`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={[
-        'relative grid gap-8 border-t py-16 lg:grid-cols-[auto_1fr] lg:gap-14',
+        'relative grid scroll-mt-24 gap-8 border-t py-16 lg:grid-cols-[auto_1fr] lg:gap-14',
         d.flagship ? 'border-signal/40' : 'border-paper/10',
         d.muted ? 'opacity-80' : '',
       ].join(' ')}

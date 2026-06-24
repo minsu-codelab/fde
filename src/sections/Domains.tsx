@@ -16,7 +16,7 @@ export default function Domains() {
           {domains.map((d, i) => (
             <motion.button
               key={d.code}
-              onClick={() => scrollToId('dossiers')}
+              onClick={() => scrollToId(`dossier-${d.id}`, -90)}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}

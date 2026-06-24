@@ -609,6 +609,7 @@ export const dossiers: Dossier[] = [
  * ────────────────────────────────────────────────────────────── */
 export interface DomainEntry {
   code: string
+  id: string // 대상 배포 도식 id (앵커 스크롤용)
   project: string
   label: L10n
   line: L10n
@@ -616,6 +617,7 @@ export interface DomainEntry {
 
 export const domains: DomainEntry[] = dossiers.map((d, i) => ({
   code: `D-0${i + 1}`,
+  id: d.id,
   project: d.name,
   label: d.domain,
   line: d.user,
