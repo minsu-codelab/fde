@@ -12,11 +12,11 @@
 >
 > **시각 정합:** 사이트는 이 영상을 opacity ≈ 0.22 로 깔고, 그 위에 옅은 좌표 그리드 + 오퍼레이터 HUD 코너 좌표를
 > 올린다. 그러니 영상은 **중앙을 차분하게**, 움직임은 **느리고 부드럽게**, **seamless loop** 로 만든다.
-> (이 사이트의 Hero는 `hero.mp4` + `hero1.mp4` 두 영상을 크로스페이드로 순환하므로, 아래 **A·B 두 컷**을 만들면 가장 좋다.)
+> (이 사이트의 Hero는 `hero2.mp4` + `hero3.mp4` 두 영상을 크로스페이드로 순환하므로, 아래 **A·B 두 컷**을 만들면 가장 좋다.)
 
 ---
 
-## ⭐ 컷 A — 추천 1순위: 현장 투입 원샷 프롬프트 (EN — 이것 하나만 붙여넣기 → `public/hero.mp4`)
+## ⭐ 컷 A — 추천 1순위: 현장 투입 원샷 프롬프트 (EN — 이것 하나만 붙여넣기 → `public/hero2.mp4`)
 
 > Deevid엔 네거티브 입력란이 없으므로 모든 제약(Avoid: ~)을 프롬프트 끝에 포함했다. **이 블록 하나만** 입력.
 
@@ -47,7 +47,7 @@ or blur.
 
 ---
 
-## ⭐ 컷 B — 추천 2순위: 오퍼레이터 콘솔 / 디지털 트윈 (EN → `public/hero1.mp4`)
+## ⭐ 컷 B — 추천 2순위: 오퍼레이터 콘솔 / 디지털 트윈 (EN → `public/hero3.mp4`)
 
 > 사람 없이 **현장을 위에서 내려다보는 디지털 트윈/관제 화면** 느낌. 컷 A와 크로스페이드되며 톤을 채운다.
 
@@ -108,14 +108,14 @@ ffmpeg -i hero_raw.mp4 -filter_complex \
 
 ## 산출물 배치
 
-1. 컷 A → **`public/hero.mp4`**, 컷 B → **`public/hero1.mp4`** 로 저장 (현재 메인에서 복사된 파일을 덮어쓰면 됨).
+1. 컷 A → **`public/hero2.mp4`**, 컷 B → **`public/hero3.mp4`** 로 저장 (현재 적용된 파일명).
 2. 컷 A의 첫 프레임을 캡처해 **`public/hero-poster.jpg`** 로 저장 (로드 전·reduced-motion 폴백).
 3. 1080p 기준 **2–4MB** 목표로 압축, 오디오 제거:
    ```bash
    ffmpeg -i in.mp4 -vf scale=1920:-2 -b:v 2M -an hero.mp4
    ```
-4. 파일을 넣으면 `src/sections/FdeHero.tsx`의 `HERO_VIDEOS = ['/hero.mp4', '/hero1.mp4']`가 자동으로
-   크로스페이드 순환 재생한다. 한 컷만 만들면 `hero.mp4` 하나만 둬도 동작한다(배열에서 hero1 제거 가능).
+4. 파일을 넣으면 `src/sections/FdeHero.tsx`의 `HERO_VIDEOS = ['hero2.mp4', 'hero3.mp4']`(BASE_URL 접두)가 자동으로
+   크로스페이드 순환 재생한다. 한 컷만 쓰려면 배열에서 hero3 제거 가능.
 5. 파일이 없어도 그라데이션 + 좌표 그리드 배경만으로 정상 표시된다.
 
 > 영상은 `autoplay muted loop playsInline`로 재생되며, `prefers-reduced-motion` 사용자는 정지 프레임(poster)만 본다.

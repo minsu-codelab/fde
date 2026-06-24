@@ -51,5 +51,5 @@ npm run preview  # 빌드 결과 미리보기
 ## 배경 영상
 
 [`docs/fde-hero-prompt.md`](docs/fde-hero-prompt.md) 에 Deevid AI용 원샷 프롬프트(컷 A·B)와
-후처리·압축·배치 가이드가 있다. 새 영상을 받으면 `public/hero.mp4`, `public/hero1.mp4` 를 덮어쓰면 된다.
-(현재는 메인 영상이 복사돼 있어 그대로도 동작한다.)
+후처리·압축·배치 가이드가 있다. 현재 Hero는 FDE 전용 영상 **`public/hero2.mp4`(컷 A)** + **`public/hero3.mp4`(컷 B)**
+를 크로스페이드로 순환한다(`src/sections/FdeHero.tsx`의 `HERO_VIDEOS`). 포스터(`public/hero-poster.jpg`)는 hero2 첫 프레임.

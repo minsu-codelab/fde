@@ -7,8 +7,8 @@ import { scrollToId } from '../hooks/useSmoothScroll'
 // base='/fde/' 프로젝트 페이지이므로 public 자산은 BASE_URL 로 접두 (절대경로 '/hero.mp4'는 404)
 const BASE = import.meta.env.BASE_URL
 const HERO_POSTER = `${BASE}hero-poster.jpg`
-// 메인 포트폴리오와 같은 두 배경 영상을 크로스페이드로 순환 (스타일 패밀리 유지)
-const HERO_VIDEOS = [`${BASE}hero.mp4`, `${BASE}hero1.mp4`]
+// FDE 전용 배경 영상 두 컷을 크로스페이드로 순환 (field→code 컨셉)
+const HERO_VIDEOS = [`${BASE}hero2.mp4`, `${BASE}hero3.mp4`]
 const CROSSFADE = 1.1
 
 export default function FdeHero() {
