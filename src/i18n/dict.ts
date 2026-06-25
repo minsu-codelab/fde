@@ -186,7 +186,7 @@ const en: Dict = {
   },
   thesis: {
     label: 'Thesis',
-    heading: 'An FDE owns the\noutcome in the field',
+    heading: 'An FDE owns the outcome\nin the field',
     body: [
       'A Forward Deployed Engineer goes into the customer’s world with the product, learns how they actually work, and bridges the core product and the tangled reality on the ground. The job isn’t to write code. It’s to produce the outcome.',
       'I spent four years as a PM on a fire-shutter manufacturing floor, defining and solving real problems, and became a developer to put that floor into code. So I know what I’m good at: going fast into an unfamiliar domain, hearing the problem in its own language, shipping an artifact that answers in numbers, and owning the operation.',
