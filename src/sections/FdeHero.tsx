@@ -81,7 +81,7 @@ export default function FdeHero() {
       </div>
 
       {/* 오퍼레이터 HUD 코너 좌표 */}
-      <div className="pointer-events-none absolute inset-0 hidden font-mono text-[10px] uppercase tracking-[0.25em] text-paper/25 sm:block">
+      <div className="pointer-events-none absolute inset-0 hidden font-mono text-[11px] uppercase tracking-[0.25em] text-paper/25 sm:block">
         <span className="absolute left-6 top-24">37.2636 N</span>
         <span className="absolute right-6 top-24 text-right">127.0286 E</span>
         <span className="absolute bottom-8 left-6">SUWON · KR</span>
@@ -94,7 +94,7 @@ export default function FdeHero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-7 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-paper/50 sm:text-[12px]"
+          className="mb-7 flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.3em] text-paper/65 sm:text-[12px]"
         >
           <span className="inline-block h-1.5 w-1.5 animate-blink rounded-full bg-signal" />
           {t.hero.status}
@@ -130,7 +130,7 @@ export default function FdeHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="mt-8 max-w-xl break-keep text-lg text-paper/65 sm:text-xl"
+          className="mt-8 max-w-xl break-keep text-lg text-paper/80 sm:text-xl"
         >
           {t.hero.sub}
         </motion.p>
@@ -139,7 +139,7 @@ export default function FdeHero() {
       {/* 스크롤 큐 */}
       <button
         onClick={() => scrollToId('thesis')}
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-paper/40 transition-colors hover:text-paper/80"
+        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-paper/55 transition-colors hover:text-paper/80"
       >
         {t.hero.scroll}
         <span className="relative block h-9 w-px overflow-hidden bg-paper/20">

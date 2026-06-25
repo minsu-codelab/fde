@@ -30,7 +30,7 @@ export default function Competencies() {
                 <span className="font-mono text-[12px] uppercase tracking-[0.25em] text-signal/80">
                   {c.code}
                 </span>
-                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/25">
+                <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-paper/25">
                   COMPETENCY
                 </span>
               </div>
@@ -38,15 +38,15 @@ export default function Competencies() {
               <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight">
                 {c.title[lang]}
               </h3>
-              <p className="mt-3 max-w-2xl break-keep leading-relaxed text-paper/65">
+              <p className="mt-3 max-w-2xl break-keep leading-relaxed text-paper/80">
                 {c.desc[lang]}
               </p>
 
               <div className="mt-5 flex items-start gap-2 border-t border-paper/10 pt-4">
-                <span className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/30">
+                <span className="mt-0.5 font-mono text-[11px] uppercase tracking-[0.2em] text-paper/30">
                   EVIDENCE
                 </span>
-                <p className="break-keep text-[13px] leading-relaxed text-paper/55">
+                <p className="break-keep text-[14px] leading-relaxed text-paper/70">
                   {c.evidence[lang]}
                 </p>
               </div>

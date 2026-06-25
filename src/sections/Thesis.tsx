@@ -29,7 +29,7 @@ export default function Thesis() {
 
           {/* 우: 궤적 (현장 → 코드) */}
           <div>
-            <div className="mb-6 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-paper/40">
+            <div className="mb-6 flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.25em] text-paper/55">
               <span className="inline-block h-px w-6 bg-signal/60" />
               {t.thesis.pathLabel}
             </div>
@@ -46,13 +46,13 @@ export default function Thesis() {
                   <span className="absolute -left-[27px] top-1 flex h-2.5 w-2.5 items-center justify-center">
                     <span className={`h-2.5 w-2.5 rounded-full ${i === 2 ? 'bg-signal' : 'bg-paper/40'}`} />
                   </span>
-                  <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/35">
+                  <div className="font-mono text-[12px] uppercase tracking-[0.2em] text-paper/55">
                     STEP {step.code}
                   </div>
                   <div className="mt-1 font-display text-lg font-semibold tracking-tight">
                     {step.title}
                   </div>
-                  <p className="mt-1.5 break-keep text-[14px] leading-relaxed text-paper/55">
+                  <p className="mt-1.5 break-keep text-[14px] leading-relaxed text-paper/70">
                     {step.desc}
                   </p>
                 </motion.li>

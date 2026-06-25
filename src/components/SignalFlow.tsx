@@ -91,12 +91,12 @@ export default function SignalFlow({ flow, kicker, compact = false }: SignalFlow
   }, [reduced, lang])
 
   const nodePad = compact ? 'px-3 py-2.5 min-h-[44px]' : 'px-4 py-3.5 min-h-[60px]'
-  const nodeText = compact ? 'text-[12px]' : 'text-[13px]'
+  const nodeText = compact ? 'text-[12px]' : 'text-[14px]'
 
   return (
     <div ref={scopeRef} className="w-full">
       {/* 라벨 + 제목 (중앙 정렬) */}
-      <div className="mb-2 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.25em] text-paper/40">
+      <div className="mb-2 flex items-center justify-center gap-2 text-[12px] uppercase tracking-[0.25em] text-paper/55">
         <span className="inline-block h-px w-6 bg-paper/30" />
         {kicker}
       </div>

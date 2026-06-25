@@ -38,8 +38,8 @@ export default function Nav() {
           onClick={() => go('hero')}
           className="flex items-center gap-2 font-display text-sm font-semibold tracking-tightest text-paper"
         >
-          YMS<span className="text-paper/40">.dev</span>
-          <span className="rounded-sm border border-signal/50 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.15em] text-signal">
+          YMS<span className="text-paper/55">.dev</span>
+          <span className="rounded-sm border border-signal/50 px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-signal">
             FDE
           </span>
         </button>
@@ -49,7 +49,7 @@ export default function Nav() {
             <button
               key={s}
               onClick={() => go(s)}
-              className="group relative text-[13px] uppercase tracking-[0.18em] text-paper/55 transition-colors hover:text-paper"
+              className="group relative text-[14px] uppercase tracking-[0.18em] text-paper/70 transition-colors hover:text-paper"
             >
               {t.nav[s]}
               <span className="absolute -bottom-1 left-0 h-px w-0 bg-paper transition-all duration-300 group-hover:w-full" />
@@ -60,14 +60,14 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <a
             href={profile.mainSite}
-            className="hidden font-mono text-[11px] uppercase tracking-[0.15em] text-paper/45 transition-colors hover:text-paper sm:inline"
+            className="hidden font-mono text-[12px] uppercase tracking-[0.15em] text-paper/60 transition-colors hover:text-paper sm:inline"
           >
             {t.contact.mainSite} ↗
           </a>
           <button
             onClick={toggle}
             aria-label="Toggle language"
-            className="relative flex h-8 items-center rounded-full border border-paper/20 px-1 text-[11px] font-medium"
+            className="relative flex h-8 items-center rounded-full border border-paper/20 px-1 text-[12px] font-medium"
           >
             {(['ko', 'en'] as const).map((l) => (
               <span key={l} className="relative px-2.5 py-0.5 uppercase">
@@ -78,7 +78,7 @@ export default function Nav() {
                     transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                   />
                 )}
-                <span className={`relative z-10 ${lang === l ? 'text-ink' : 'text-paper/55'}`}>
+                <span className={`relative z-10 ${lang === l ? 'text-ink' : 'text-paper/70'}`}>
                   {l}
                 </span>
               </span>
@@ -117,7 +117,7 @@ export default function Nav() {
               ))}
               <a
                 href={profile.mainSite}
-                className="py-3 text-left font-mono text-[12px] uppercase tracking-[0.15em] text-paper/45"
+                className="py-3 text-left font-mono text-[12px] uppercase tracking-[0.15em] text-paper/60"
               >
                 {t.contact.mainSite} ↗
               </a>

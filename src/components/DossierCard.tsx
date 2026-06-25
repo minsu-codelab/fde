@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import type { Dossier, ProjectLink } from '../data/fde'
-import { competencyByKey } from '../data/fde'
+import { competencyByKey, dossiers } from '../data/fde'
 import { useLang } from '../i18n/LanguageContext'
 import SignalFlow from './SignalFlow'
 import Gallery from './Gallery'
@@ -17,7 +17,7 @@ function LinkPill({ link, label }: { link: ProjectLink; label: string }) {
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/link inline-flex items-center gap-1.5 rounded-full border border-paper/20 px-4 py-2 text-[13px] font-medium text-paper/80 transition-all hover:border-paper hover:bg-paper hover:text-ink"
+      className="group/link inline-flex items-center gap-1.5 rounded-full border border-paper/20 px-4 py-2 text-[14px] font-medium text-paper/80 transition-all hover:border-paper hover:bg-paper hover:text-ink"
     >
       {label}
       <ArrowIcon />
@@ -68,30 +68,35 @@ export default function DossierCard({ d }: { d: Dossier }) {
       {/* 좌측: 인덱스 + 메타 (sticky) */}
       <div className="lg:w-44">
         <div className="lg:sticky lg:top-28">
-          <span
-            className={[
-              'font-display font-semibold leading-none tracking-tightest',
-              d.muted ? 'text-5xl text-paper/20' : 'text-7xl text-stroke',
-            ].join(' ')}
-          >
-            {d.index}
-          </span>
-          <div className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-paper/40">
+          <div className="flex items-baseline gap-1.5">
+            <span
+              className={[
+                'font-display font-semibold leading-none tracking-tightest',
+                d.muted ? 'text-5xl text-paper/30' : 'text-7xl text-stroke',
+              ].join(' ')}
+            >
+              {d.index}
+            </span>
+            <span className="font-mono text-base text-paper/60">
+              / {String(dossiers.length).padStart(2, '0')}
+            </span>
+          </div>
+          <div className="mt-4 font-mono text-[12px] uppercase tracking-[0.2em] text-paper/55">
             {d.period}
           </div>
           <div className="mt-2 flex flex-wrap items-center gap-1.5">
-            <span className="inline-block rounded-full border border-paper/15 px-2.5 py-0.5 text-[10px] uppercase tracking-[0.15em] text-paper/50">
+            <span className="inline-block rounded-full border border-paper/15 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.15em] text-paper/65">
               {d.kind === 'team' ? t.dossiers.team : t.dossiers.solo}
             </span>
             {!d.muted && (
-              <span className="inline-flex items-center gap-1 rounded-full border border-signal/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.15em] text-signal/90">
+              <span className="inline-flex items-center gap-1 rounded-full border border-signal/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-signal/90">
                 <span className="inline-block h-1 w-1 rounded-full bg-signal" />
                 {t.dossiers.deployed}
               </span>
             )}
           </div>
           {d.flagship && (
-            <div className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em] text-signal/80">
+            <div className="mt-3 font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-signal/80">
               ★ {t.dossiers.flagship}
             </div>
           )}
@@ -101,7 +106,7 @@ export default function DossierCard({ d }: { d: Dossier }) {
       {/* 우측: 본문 */}
       <div className="min-w-0">
         {/* 도메인 헤더 */}
-        <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-signal/70">
+        <div className="flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.25em] text-signal/70">
           <span className="inline-block h-px w-6 bg-signal/50" />
           {d.domain[lang]}
         </div>
@@ -114,10 +119,10 @@ export default function DossierCard({ d }: { d: Dossier }) {
         <div className="hud-bracket relative mt-8 overflow-hidden rounded-xl border border-paper/12 bg-paper/[0.02]">
           <div className="grid-field absolute inset-0 opacity-50" />
           <div className="relative flex items-center justify-between border-b border-paper/10 px-5 py-2.5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-paper/45">
+            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-paper/60">
               DEPLOYMENT DOSSIER · {d.index}
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/30">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/30">
               {d.id}
             </span>
           </div>
@@ -132,8 +137,8 @@ export default function DossierCard({ d }: { d: Dossier }) {
               >
                 <div
                   className={[
-                    'pt-0.5 font-mono text-[10px] uppercase tracking-[0.18em]',
-                    row.insight ? 'text-signal/80' : 'text-paper/35',
+                    'pt-0.5 font-mono text-[11px] uppercase tracking-[0.18em]',
+                    row.insight ? 'text-signal/80' : 'text-paper/55',
                   ].join(' ')}
                 >
                   {row.label}
@@ -159,7 +164,7 @@ export default function DossierCard({ d }: { d: Dossier }) {
                 <div className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
                   {m.value}
                 </div>
-                <div className="mt-1.5 break-keep text-[11px] leading-snug text-paper/45">
+                <div className="mt-1.5 break-keep text-[12px] leading-snug text-paper/60">
                   {m.label[lang]}
                 </div>
               </div>
@@ -172,16 +177,16 @@ export default function DossierCard({ d }: { d: Dossier }) {
 
         {/* PAAR */}
         <div className="mt-9 space-y-4">
-          <div className="font-mono text-[11px] uppercase tracking-[0.25em] text-paper/35">PAAR</div>
+          <div className="font-mono text-[12px] uppercase tracking-[0.25em] text-paper/55">PAAR</div>
           {paarRows.map((row, i) => (
             <div key={i} className="grid gap-1.5 sm:grid-cols-[88px_1fr] sm:gap-5">
-              <div className="pt-0.5 text-[11px] uppercase tracking-[0.2em] text-paper/35">
+              <div className="pt-0.5 text-[12px] uppercase tracking-[0.2em] text-paper/55">
                 {row.label}
               </div>
               <p
                 className={[
                   'break-keep leading-relaxed',
-                  row.emphasis ? 'text-paper/90' : 'text-paper/65',
+                  row.emphasis ? 'text-paper/90' : 'text-paper/80',
                 ].join(' ')}
               >
                 {row.text}
@@ -197,7 +202,7 @@ export default function DossierCard({ d }: { d: Dossier }) {
 
         {/* 입증한 역량 태그 */}
         <div className="mt-8">
-          <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/35">
+          <div className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-paper/55">
             {t.dossiers.competencyLabel}
           </div>
           <div className="flex flex-wrap gap-2">
@@ -208,7 +213,7 @@ export default function DossierCard({ d }: { d: Dossier }) {
                   key={key}
                   className="inline-flex items-center gap-1.5 rounded-full border border-signal/30 px-3 py-1 text-[12px] text-paper/75"
                 >
-                  <span className="font-mono text-[10px] text-signal/80">{c.code}</span>
+                  <span className="font-mono text-[11px] text-signal/80">{c.code}</span>
                   {c.title[lang]}
                 </span>
               )
@@ -221,7 +226,7 @@ export default function DossierCard({ d }: { d: Dossier }) {
           {d.stack.map((s) => (
             <span
               key={s}
-              className="rounded-md border border-paper/10 px-2.5 py-1 font-mono text-[12px] text-paper/50"
+              className="rounded-md border border-paper/10 px-2.5 py-1 font-mono text-[12px] text-paper/65"
             >
               {s}
             </span>

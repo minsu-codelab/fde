@@ -23,7 +23,7 @@ export default function Domains() {
               transition={{ duration: 0.5, delay: (i % 3) * 0.07 }}
               className="group relative bg-ink p-7 text-left transition-colors hover:bg-paper/[0.03]"
             >
-              <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.22em] text-paper/30">
+              <div className="flex items-center justify-between font-mono text-[12px] uppercase tracking-[0.22em] text-paper/30">
                 <span className="text-signal/70">{d.code}</span>
                 <span className="opacity-0 transition-opacity group-hover:opacity-100">→ dossier</span>
               </div>
@@ -33,15 +33,15 @@ export default function Domains() {
               </div>
 
               <div className="mt-3 flex items-start gap-2">
-                <span className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/30">
+                <span className="mt-0.5 font-mono text-[11px] uppercase tracking-[0.2em] text-paper/30">
                   {t.domains.userPrefix}
                 </span>
-                <p className="break-keep text-[13px] leading-relaxed text-paper/55">
+                <p className="break-keep text-[14px] leading-relaxed text-paper/70">
                   {d.line[lang]}
                 </p>
               </div>
 
-              <div className="mt-5 font-mono text-[11px] text-paper/35">{d.project}</div>
+              <div className="mt-5 font-mono text-[12px] text-paper/55">{d.project}</div>
             </motion.button>
           ))}
         </div>

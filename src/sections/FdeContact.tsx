@@ -15,7 +15,7 @@ export default function FdeContact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.35em] text-paper/40"
+          className="flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.35em] text-paper/55"
         >
           <span className="inline-block h-1.5 w-1.5 animate-blink rounded-full bg-signal" />
           {t.contact.label}
@@ -47,7 +47,7 @@ export default function FdeContact() {
             href={`mailto:${profile.email}`}
             className="group bg-ink p-6 transition-colors hover:bg-paper/[0.03]"
           >
-            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/35">
+            <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/55">
               {t.contact.email}
             </div>
             <div className="mt-2 break-all font-display text-base text-paper/85 transition-colors group-hover:text-paper">
@@ -60,7 +60,7 @@ export default function FdeContact() {
             rel="noopener noreferrer"
             className="group bg-ink p-6 transition-colors hover:bg-paper/[0.03]"
           >
-            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/35">
+            <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/55">
               {t.contact.github}
             </div>
             <div className="mt-2 font-display text-base text-paper/85 transition-colors group-hover:text-paper">
@@ -71,7 +71,7 @@ export default function FdeContact() {
             href={profile.mainSite}
             className="group bg-ink p-6 transition-colors hover:bg-paper/[0.03]"
           >
-            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-signal/70">
+            <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-signal/70">
               {t.contact.mainSite}
             </div>
             <div className="mt-2 font-display text-base text-paper/85 transition-colors group-hover:text-paper">
@@ -81,7 +81,7 @@ export default function FdeContact() {
         </div>
 
         {/* 푸터 */}
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-paper/10 pt-7 text-[12px] text-paper/35 sm:flex-row sm:items-center">
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-paper/10 pt-7 text-[12px] text-paper/55 sm:flex-row sm:items-center">
           <div className="font-mono uppercase tracking-[0.2em]">
             {profile.location[lang]} · {t.footer.note}
           </div>
