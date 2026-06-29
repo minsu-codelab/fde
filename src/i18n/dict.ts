@@ -50,6 +50,7 @@ export interface Dict {
     outcomeLabel: string
     competencyLabel: string
     pipeline: string
+    deploy: string
     problem: string
     approach: string
     action: string
@@ -84,7 +85,7 @@ const ko: Dict = {
     contact: '연락',
   },
   hero: {
-    status: 'FORWARD DEPLOYED · 6 DOMAINS · STATUS: LIVE',
+    status: 'FORWARD DEPLOYED · 7 DOMAINS · STATUS: LIVE',
     role: 'Forward Deployed Engineer',
     tagline: '현장에 투입돼,\n도메인을 코드로 옮깁니다.',
     sub: '문제를 현장의 언어로 듣고, 산출물을 배포하고, 성과를 숫자로 책임집니다.',
@@ -96,7 +97,7 @@ const ko: Dict = {
     body: [
       'Forward Deployed Engineer는 제품을 들고 고객 현장에 들어가, 그들이 실제로 일하는 방식을 이해하고, 핵심 제품과 현장의 복잡한 현실 사이를 잇는 사람입니다. 코드를 짜는 게 아니라 결과를 만드는 게 일입니다.',
       '저는 4년간 방화셔터 제조 현장의 PM으로 일하며 문제를 정의하고 풀었고, 그 현장을 코드로 옮기고 싶어 개발자가 됐습니다. 그래서 제가 잘하는 건 분명합니다. 낯선 도메인에 빠르게 들어가 현장의 언어로 문제를 듣고, 숫자로 답하는 산출물을 배포하고, 운영까지 책임지는 일입니다.',
-      '아래 6개의 배포 도식은 같은 프로젝트를 “무엇을 만들었나”가 아니라 “어떤 현장에 들어가 무엇을 바꿨나”의 관점으로 다시 풀어낸 기록입니다.',
+      '아래 7개의 배포 도식은 같은 프로젝트를 “무엇을 만들었나”가 아니라 “어떤 현장에 들어가 무엇을 바꿨나”의 관점으로 다시 풀어낸 기록입니다.',
     ],
     pathLabel: '현장에서 코드로 온 길',
     path: [
@@ -108,12 +109,12 @@ const ko: Dict = {
       {
         code: '02',
         title: '풀스택 전환',
-        desc: '현장에서 정의하던 문제를 직접 코드로 푸는 개발자로. 6개 프로젝트를 기획부터 배포까지.',
+        desc: '현장에서 정의하던 문제를 직접 코드로 푸는 개발자로. 7개 프로젝트를 기획부터 배포까지.',
       },
       {
         code: '03',
         title: 'Forward Deployed',
-        desc: '해운·건설·음악·제조·리테일·모빌리티, 6개 도메인에 들어가 산출물을 책임짐.',
+        desc: 'AI 개발도구·해운·건설·음악·제조·리테일·모빌리티, 7개 도메인에 들어가 산출물을 책임짐.',
       },
     ],
   },
@@ -125,13 +126,13 @@ const ko: Dict = {
   domains: {
     label: '도메인',
     heading: '들어간 현장',
-    note: '한 산업에 머물지 않고, 6개의 서로 다른 도메인에 들어가 각자의 현실을 코드로 옮겼습니다.',
+    note: '한 산업에 머물지 않고, 7개의 서로 다른 도메인에 들어가 각자의 현실을 코드로 옮겼습니다.',
     userPrefix: '사용자',
   },
   dossiers: {
     label: '배포 도식',
     heading: 'Deployment Dossiers',
-    note: '프로젝트 6종을 FDE 관점으로 다시 봤습니다. 도메인, 현장의 현실, 거기서 얻은 통찰, 배포물, 그리고 책임진 성과와 PAAR.',
+    note: '프로젝트 7종을 FDE 관점으로 다시 봤습니다. 도메인, 현장의 현실, 거기서 얻은 통찰, 배포물, 그리고 책임진 성과와 PAAR.',
     flagship: 'FLAGSHIP DEPLOYMENT',
     deployed: 'DEPLOYED',
     team: '팀',
@@ -144,6 +145,7 @@ const ko: Dict = {
     outcomeLabel: '책임진 성과',
     competencyLabel: '입증한 역량',
     pipeline: '동작 흐름',
+    deploy: 'CI/CD · 배포',
     problem: '문제',
     approach: '접근',
     action: '실행',
@@ -178,7 +180,7 @@ const en: Dict = {
     contact: 'Contact',
   },
   hero: {
-    status: 'FORWARD DEPLOYED · 6 DOMAINS · STATUS: LIVE',
+    status: 'FORWARD DEPLOYED · 7 DOMAINS · STATUS: LIVE',
     role: 'Forward Deployed Engineer',
     tagline: 'I deploy into the field\nand turn the domain into code.',
     sub: 'I hear the problem in the field’s own language, ship the artifact, and own the outcome in numbers.',
@@ -190,7 +192,7 @@ const en: Dict = {
     body: [
       'A Forward Deployed Engineer goes into the customer’s world with the product, learns how they actually work, and bridges the core product and the tangled reality on the ground. The job isn’t to write code. It’s to produce the outcome.',
       'I spent four years as a PM on a fire-shutter manufacturing floor, defining and solving real problems, and became a developer to put that floor into code. So I know what I’m good at: going fast into an unfamiliar domain, hearing the problem in its own language, shipping an artifact that answers in numbers, and owning the operation.',
-      'The six dossiers below retell the same projects not as “what I built,” but as “which field I went into and what I changed.”',
+      'The seven dossiers below retell the same projects not as “what I built,” but as “which field I went into and what I changed.”',
     ],
     pathLabel: 'From the field to code',
     path: [
@@ -202,12 +204,12 @@ const en: Dict = {
       {
         code: '02',
         title: 'Into full-stack',
-        desc: 'From defining problems on the floor to solving them directly in code. Six projects, planned through to deployment.',
+        desc: 'From defining problems on the floor to solving them directly in code. Seven projects, planned through to deployment.',
       },
       {
         code: '03',
         title: 'Forward deployed',
-        desc: 'Shipping, construction, music, manufacturing, retail, mobility: six domains gone into, results owned.',
+        desc: 'AI dev tooling, shipping, construction, music, manufacturing, retail, mobility: seven domains gone into, results owned.',
       },
     ],
   },
@@ -219,13 +221,13 @@ const en: Dict = {
   domains: {
     label: 'Domains',
     heading: 'Fields gone into',
-    note: 'Not one industry but six different domains, each with its own reality moved into code.',
+    note: 'Not one industry but seven different domains, each with its own reality moved into code.',
     userPrefix: 'User',
   },
   dossiers: {
     label: 'Dossiers',
     heading: 'Deployment Dossiers',
-    note: 'Six projects retold through the FDE lens: the domain, the reality on the ground, the insight it gave, what shipped, the outcome owned, and PAAR.',
+    note: 'Seven projects retold through the FDE lens: the domain, the reality on the ground, the insight it gave, what shipped, the outcome owned, and PAAR.',
     flagship: 'FLAGSHIP DEPLOYMENT',
     deployed: 'DEPLOYED',
     team: 'Team',
@@ -238,6 +240,7 @@ const en: Dict = {
     outcomeLabel: 'Outcome owned',
     competencyLabel: 'Competencies shown',
     pipeline: 'How it works',
+    deploy: 'CI/CD · deploy',
     problem: 'Problem',
     approach: 'Approach',
     action: 'Action',

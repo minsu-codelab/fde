@@ -154,14 +154,99 @@ export interface Dossier {
   stack: string[]
   links: ProjectLink[]
   pipeline: Flow
+  /** CI/CD · 배포 흐름 (선택) */
+  deploy?: Flow
   shots?: Shot[]
 }
 
 export const dossiers: Dossier[] = [
-  /* 01 ───────────────────────────────────────────── ArcticTwin */
+  /* 01 ──────────────────────────────────── lca · Local Coding Agent (flagship) */
+  {
+    id: 'lca',
+    index: '01',
+    name: 'lca · Local Coding Agent',
+    flagship: true,
+    period: '2026.06',
+    kind: 'solo',
+    domain: { ko: '사내 AI 개발도구 · 보안 규제', en: 'In-house AI dev tooling · regulated security' },
+    user: {
+      ko: '클라우드 AI를 쓸 수 없는 사내 개발팀 (대기업·금융권)',
+      en: 'In-house dev teams barred from cloud AI (enterprise · finance)',
+    },
+    statusQuo: {
+      ko: '보안상 사내 코드를 외부 클라우드 AI에 보낼 수 없어 Claude Code 같은 도구를 못 씁니다. 그렇다고 로컬에 올릴 만한 작은 모델은 환각이 커서 믿고 맡길 수 없었습니다.',
+      en: 'Source code can’t leave the building for a cloud AI, so tools like Claude Code are off the table — yet a small enough local model hallucinates too much to trust with real work.',
+    },
+    insight: {
+      ko: '현장이 원하는 건 더 큰 모델이 아니라 “코드가 밖으로 안 나가면서, 틀린 답을 확신하지 않는” 도구였습니다. 신뢰는 모델 크기가 아니라 검증에서 나온다고 봤습니다.',
+      en: 'The field doesn’t want a bigger model — it wants a tool that keeps code in-house and never asserts a wrong answer. Trust comes from verification, not model size.',
+    },
+    shipped: {
+      ko: '100% 로컬에서 도는 ReAct 코딩 에이전트. 실행 오라클·다양관점 judge·적대적 교차검증·abstention을 묶은 검증 게이트가 척추이고, RAG·경험 메모리·QLoRA로 자기개선합니다.',
+      en: 'A 100%-local ReAct coding agent whose spine is a verification gate — execution oracle, multi-lens judges, an adversarial cross-exam and abstention — improving itself via RAG, experience memory and QLoRA.',
+    },
+    outcome: {
+      ko: '생성 정확도 94%(16/17, 3회 동일), 자신 없을 때 실제로 답을 보류함을 라이브 검증, 7B QLoRA를 RTX 5070(Blackwell)에서 학습 검증(loss 1.04). pytest 198·mypy strict·CI로 GitHub 공개.',
+      en: '94% generation accuracy (16/17, identical across 3 runs), live-verified abstention when unsure, and 7B QLoRA proven to train on an RTX 5070 (Blackwell, loss 1.04). Published on GitHub with 198 pytest, mypy --strict and CI.',
+    },
+    competencies: ['immersion', 'measure', 'ownership'],
+    metrics: [
+      { value: '94%', label: { ko: '생성 정확도 (16/17, 3회 동일)', en: 'generation accuracy (16/17, ×3)' } },
+      { value: '198', label: { ko: 'pytest 통과 (mypy strict·CI)', en: 'pytest passing (mypy strict · CI)' } },
+      { value: '100%', label: { ko: '로컬 실행 (코드 유출 0)', en: 'local — zero code leaves the box' } },
+      { value: 'QLoRA', label: { ko: 'Blackwell 학습 검증 (loss 1.04)', en: 'fine-tune verified on Blackwell (loss 1.04)' } },
+    ],
+    paar: {
+      problem: {
+        ko: '대기업·금융권은 보안상 사내 코드를 외부 클라우드 AI에 보낼 수 없어 Claude Code류를 못 씁니다. 그렇다고 로컬 소형 모델은 환각(틀린 답을 확신)이 커서, “코드가 안 나가면서 확실한 답만 주는” 도구가 없었습니다.',
+        en: 'Enterprises and banks can’t send code to a cloud AI, so Claude-Code-style tools are out — but a local small model hallucinates with confidence. There was no tool that both keeps code in and only gives answers it’s sure of.',
+      },
+      approach: {
+        ko: '모델을 키우는 대신 “검증으로 신뢰”를 택했습니다. 답을 주기 전에 실제로 실행해 보고, 서로 다른 관점으로 따지고, 답을 깨려 시도하고, 그래도 확신이 없으면 단정하지 않게 만들면, 작은 로컬 모델로도 신뢰를 만들 수 있다고 봤습니다.',
+        en: 'Instead of a bigger model I chose trust-by-verification: actually run the answer, scrutinize it from independent angles, try to break it, and abstain when still unsure — enough to make even a small local model trustworthy.',
+      },
+      action: {
+        ko: 'Claude Code류 에이전트의 두뇌(ReAct 루프·도구·권한·검증 게이트)를 직접 구현했습니다. 답 전에 ①코드 실행(테스트·타입·린트)을 진실로 삼고 ②다양관점 judge와 적대적 교차검증(보이지 않는 논쟁)을 거쳐 ③확신 없으면 abstain하게 했습니다. 또 기존 바이브코딩 프로젝트 코드를 RAG로 인덱싱·분석해 학습시키고, 언어·프레임워크 docs를 184장 레퍼런스로 사전 학습시켰으며, 검증 통과분만 기억하는 메모리와 7B QLoRA까지 검증했습니다.',
+        en: 'I built the agent’s brain myself — ReAct loop, tools, permissions, verification gate. Before answering it ①treats code execution (tests·types·lint) as ground truth, ②runs multi-lens judges and an adversarial cross-exam (a hidden debate), and ③abstains when unsure. It also learns from my own vibe-coded projects via RAG indexing, is pre-loaded with a 184-card reference of language/framework docs, remembers only verified solutions, and I validated 7B QLoRA fine-tuning end to end.',
+      },
+      result: {
+        ko: '생성 정확도 94%(16/17, 3회 반복 동일)·도구 유효성 85~87%를 실측했고, 게이트가 자신 없을 때 실제로 답을 보류함을 라이브로 확인했습니다. 파인튜닝은 RTX 5070(Blackwell)에서 학습이 도는 것을 검증(loss 1.04)했고, pytest 198·mypy strict·CI를 갖춰 GitHub에 공개했습니다.',
+        en: 'Measured 94% generation accuracy (16/17, identical across 3 runs) and 85–87% tool validity, and live-confirmed that the gate actually withholds answers when unsure. Fine-tuning was proven to run on an RTX 5070 (Blackwell, loss 1.04), and it ships on GitHub with 198 pytest, mypy --strict and CI.',
+      },
+    },
+    stack: [
+      'Python', 'FastAPI', 'Typer', 'Rich', 'llama.cpp', 'LM Studio', 'Qwen-Coder',
+      'RAG (sqlite-vec · FastEmbed)', 'MCP', 'Pydantic-AI', 'QLoRA (Unsloth · bitsandbytes)',
+      'Docker', 'GitHub Actions', 'mypy · ruff · pytest',
+    ],
+    links: [{ kind: 'repo', url: 'https://github.com/youmin0523/local-coding-agent' }],
+    pipeline: {
+      title: { ko: '요청에서 검증된 답까지', en: 'From a request to a verified answer' },
+      nodes: [
+        { id: 'g1', label: { ko: '요청', en: 'Request' } },
+        { id: 'g2', label: { ko: '난이도 라우팅 (7B↔30B)', en: 'Difficulty routing (7B↔30B)' }, emphasis: true },
+        { id: 'g3', label: { ko: 'RAG + 검증 메모리', en: 'RAG + verified memory' } },
+        { id: 'g4', label: { ko: '생성 · best-of-N', en: 'Generate · best-of-N' }, emphasis: true },
+        { id: 'g5', label: { ko: '검증: 실행+judge+적대자', en: 'Verify: exec + judges + adversary' }, emphasis: true },
+        { id: 'g6', label: { ko: '전달 or 보류(abstain)', en: 'Deliver or abstain' }, emphasis: true },
+      ],
+    },
+    deploy: {
+      title: { ko: 'CI/CD · 로컬 서빙', en: 'CI/CD · local serving' },
+      nodes: [
+        { id: 'gd1', label: { ko: 'git push', en: 'git push' } },
+        { id: 'gd2', label: { ko: 'CI: ruff·mypy·import-linter·pytest', en: 'CI: ruff·mypy·import-linter·pytest' }, emphasis: true },
+        { id: 'gd3', label: { ko: '(옵션) WSL2 QLoRA 학습', en: '(opt) WSL2 QLoRA fine-tune' } },
+        { id: 'gd4', label: { ko: '로컬 서빙: LM Studio (30B+7B)', en: 'Local serving: LM Studio (30B+7B)' }, emphasis: true },
+        { id: 'gd5', label: { ko: 'CLI · 웹 UI', en: 'CLI · web UI' } },
+      ],
+    },
+  },
+
+  /* 02 ───────────────────────────────────────────── ArcticTwin */
   {
     id: 'arctictwin',
-    index: '01',
+    index: '02',
     name: 'ArcticTwin',
     period: '2026.04 ~ 06',
     kind: 'team',
@@ -236,10 +321,10 @@ export const dossiers: Dossier[] = [
     ],
   },
 
-  /* 02 ──────────────────────────────────────────── AeroInspect */
+  /* 03 ──────────────────────────────────────────── AeroInspect */
   {
     id: 'aeroinspect',
-    index: '02',
+    index: '03',
     name: 'AeroInspect',
     period: '2026.04 ~ 06',
     kind: 'team',
@@ -314,10 +399,10 @@ export const dossiers: Dossier[] = [
     ],
   },
 
-  /* 03 ───────────────────────────────────────────────── Re:Chord */
+  /* 04 ───────────────────────────────────────────────── Re:Chord */
   {
     id: 'rechord',
-    index: '03',
+    index: '04',
     name: 'Re:Chord',
     period: '2026.05 ~ 06',
     kind: 'solo',
@@ -389,10 +474,10 @@ export const dossiers: Dossier[] = [
     ],
   },
 
-  /* 04 ───────────────────────────────────── FDE Smart Shutter ★ */
+  /* 05 ───────────────────────────────────── FDE Smart Shutter ★ */
   {
     id: 'fde-shutter',
-    index: '04',
+    index: '05',
     name: 'FDE Smart Shutter',
     flagship: true,
     period: '2026.05 ~ 06',
@@ -468,10 +553,10 @@ export const dossiers: Dossier[] = [
     ],
   },
 
-  /* 05 ──────────────────────────────────────── What's in my Closet */
+  /* 06 ──────────────────────────────────────── What's in my Closet */
   {
     id: 'closet',
-    index: '05',
+    index: '06',
     name: "What's in my Closet",
     period: '2026.06',
     kind: 'solo',
@@ -539,10 +624,10 @@ export const dossiers: Dossier[] = [
     ],
   },
 
-  /* 06 ───────────────────────────────────────────────── EggTalk */
+  /* 07 ───────────────────────────────────────────────── EggTalk */
   {
     id: 'eggtalk',
-    index: '06',
+    index: '07',
     name: 'EggTalk',
     muted: true,
     period: '2026.02 ~ 03',
@@ -605,7 +690,7 @@ export const dossiers: Dossier[] = [
 ]
 
 /* ──────────────────────────────────────────────────────────────
- * 투입 도메인 맵. 6개 산업에 forward-deploy 한 범위.
+ * 투입 도메인 맵. 7개 산업에 forward-deploy 한 범위.
  * ────────────────────────────────────────────────────────────── */
 export interface DomainEntry {
   code: string

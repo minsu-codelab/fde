@@ -195,9 +195,14 @@ export default function DossierCard({ d }: { d: Dossier }) {
           ))}
         </div>
 
-        {/* 동작 흐름 */}
-        <div className="mt-10 rounded-2xl border border-paper/10 bg-paper/[0.02] p-6 sm:p-8">
+        {/* 동작 흐름 + (선택) CI/CD 배포 흐름 */}
+        <div className="mt-10 space-y-8 rounded-2xl border border-paper/10 bg-paper/[0.02] p-6 sm:p-8">
           <SignalFlow flow={d.pipeline} kicker={t.dossiers.pipeline} />
+          {d.deploy && (
+            <div className="border-t border-paper/10 pt-8">
+              <SignalFlow flow={d.deploy} kicker={t.dossiers.deploy} compact />
+            </div>
+          )}
         </div>
 
         {/* 입증한 역량 태그 */}
