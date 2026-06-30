@@ -61,8 +61,8 @@ export const competencies: Competency[] = [
       en: 'I learn what the user actually does and move rules that lived only in heads and spreadsheets into code. Without the domain, even the data goes wrong.',
     },
     evidence: {
-      ko: '방화셔터 현장 4년 → 7개 모델 규칙 엔진, 한국 건축 하자 6.3만 장 직접 수집',
-      en: '4 years on the fire-shutter floor → a 7-model rule engine, 63K Korean-defect images collected by hand',
+      ko: '방화셔터 현장 4년 반 → 7개 모델 규칙 엔진, 한국 건축 하자 6.3만 장 직접 수집',
+      en: '4.5 years on fire-shutter sites → a 7-model rule engine, 63K Korean-defect images collected by hand',
     },
   },
   {
@@ -100,8 +100,8 @@ export const competencies: Competency[] = [
       en: 'I bridge domain language and engineering, automating without breaking the forms and habits customers trust. Break that trust and even good automation gets rejected.',
     },
     evidence: {
-      ko: 'FDE: 규칙은 코드로 옮기되, 거래처와 인증기관이 믿는 원본 엑셀 양식은 100% 그대로 보존',
-      en: 'FDE: rules moved into code while the original Excel forms clients and certifiers trust stayed 100% intact',
+      ko: 'FDE: 규칙은 코드로 옮기되, 거래처와 인정기관이 믿는 원본 엑셀 양식은 100% 그대로 보존',
+      en: 'FDE: rules moved into code while the original Excel forms clients and the approval body trust stayed 100% intact',
     },
   },
   {
@@ -500,28 +500,28 @@ export const dossiers: Dossier[] = [
     kind: 'solo',
     domain: { ko: '제조 · 방화설비', en: 'Manufacturing · fire-safety' },
     user: {
-      ko: '비숙련 견적 담당, 생산·품질·실측자, 거래처, 인증기관',
-      en: 'Non-expert estimators, production/QC/field staff, clients, certifiers',
+      ko: '비숙련 견적 담당, 생산·품질·실측자, 거래처, 인정기관',
+      en: 'Non-expert estimators, production/QC/field staff, clients, the approval body',
     },
     statusQuo: {
       ko: '발주 단계부터 전문 지식이 필요해 숙련자만 처리할 수 있었고, 품질관리서와 납품확인서는 따로 작성됐습니다. 게다가 이 서류는 프로젝트 끝에 한 번에 발송되는데, 현장 수량과 사이즈를 일일이 대조하느라 매번 많은 시간이 들었고 이력도 남지 않았습니다.',
       en: 'Even ordering took specialist knowledge, so only veterans could handle it, and the QC certificate and delivery confirmation were written separately. Worse, those went out together at the very end, and cross-checking them against on-site quantities and sizes burned hours every project, with nothing traceable left behind.',
     },
     insight: {
-      ko: '제가 4년간 그 현장의 PM이라 규칙이 손에 익었고, 발주·품질·실측 담당자와 직접 이야기하며 진짜 병목을 짚었습니다. 시간이 가장 많이 새던 곳은 프로젝트 끝에 품질관리서·납품확인서를 현장 수량·사이즈와 대조하는 작업이었습니다. 동시에 거래처·인증기관이 “원본 엑셀 양식”을 신뢰한다는 것도 알았기에, 규칙과 대조는 코드로 자동화하되 양식은 100% 그대로 살렸습니다. 신뢰를 깨지 않고 자동화하는 것이 핵심이었습니다.',
-      en: 'As that floor’s PM for four years the rules were second nature, and I sat with the ordering, QC and field-measurement staff to pin down the real bottleneck. The biggest time sink was reconciling the QC certificate and delivery confirmation against on-site quantities and sizes at the end of a project. I also knew clients and certifiers trust the original Excel forms, so I automated the rules and that reconciliation in code while keeping the forms 100% intact. Automating without breaking that trust was the whole point.',
+      ko: '제가 방화셔터를 설계하고 건설 현장 시공을 관리한 4년 반 동안 규칙이 손에 익었고, 발주·품질·실측 담당자와 직접 이야기하며 진짜 병목을 짚었습니다. 시간이 가장 많이 새던 곳은 프로젝트 끝에 품질관리서·납품확인서를 현장 수량·사이즈와 대조하는 작업이었습니다. 동시에 거래처·인정기관이 “원본 엑셀 양식”을 신뢰한다는 것도 알았기에, 규칙과 대조는 코드로 자동화하되 양식은 100% 그대로 살렸습니다. 신뢰를 깨지 않고 자동화하는 것이 핵심이었습니다.',
+      en: 'Designing the shutters and managing their installation on site for four and a half years, the rules were second nature, and I sat with the ordering, QC and field-measurement staff to pin down the real bottleneck. The biggest time sink was reconciling the QC certificate and delivery confirmation against on-site quantities and sizes at the end of a project. I also knew clients and the approval body trust the original Excel forms, so I automated the rules and that reconciliation in code while keeping the forms 100% intact. Automating without breaking that trust was the whole point.',
     },
     shipped: {
       ko: '7개 모델 규칙 엔진, 견적→발주→승인→품질→작업지시→실측 단일 추적선, 품질관리서·납품확인서를 현장 수량·사이즈와 자동 대조해 한 번에 발급하는 자동화, 그리고 사내 실시간 메신저.',
       en: 'A 7-model rule engine, a single traceable thread from quote → order → approval → QC → work-order → measurement, automation that cross-checks the QC certificate and delivery confirmation against on-site quantities and sizes and issues them in one pass, and a real-time in-house messenger.',
     },
     outcome: {
-      ko: '이제 비숙련자도 발주·견적 가능. 끝단 서류 대조에 들던 시간을 자동화로 크게 단축. 핵심 계산은 골든 36건으로 잠금. 백엔드 16K LOC·27테이블·23 API를 1인 운영.',
-      en: 'Non-experts can now order and quote, the end-stage document reconciliation that used to eat hours is automated, the core math is locked behind 36 golden tests, and a 16K-LOC, 27-table, 23-API backend runs solo.',
+      ko: '이제 비숙련자도 발주·견적 가능. 끝단 서류 대조에 들던 시간을 자동화로 크게 단축. 핵심 계산은 골든 36건으로 잠금. 백엔드·27테이블·23 API를 1인 설계·운영.',
+      en: 'Non-experts can now order and quote, the end-stage document reconciliation that used to eat hours is automated, the core math is locked behind 36 golden tests, and a 27-table, 23-API backend is designed and run solo.',
     },
     competencies: ['immersion', 'translation', 'ownership', 'velocity'],
     metrics: [
-      { value: '16,000', label: { ko: '백엔드 코드 줄 (1인)', en: 'lines of backend, solo' } },
+      { value: '7종', label: { ko: '제작 규칙 규칙엔진화 — 숙련자만 하던 견적을 누구나', en: 'build rules as an engine — anyone can quote' } },
       { value: '27', label: { ko: 'DB 테이블', en: 'DB tables' } },
       { value: '23', label: { ko: 'API 라우터', en: 'API routers' } },
       { value: '36/36', label: { ko: '골든 회귀 테스트 통과', en: 'golden regression tests pass' } },
@@ -532,8 +532,8 @@ export const dossiers: Dossier[] = [
         en: 'Fire-shutter work needed specialist knowledge from the ordering stage, so only veterans handled it, and the QC certificate and delivery confirmation were written separately and sent together at the end. Reconciling them against on-site quantities and sizes burned a lot of time, and nothing was traceable from quote to inspection.',
       },
       approach: {
-        ko: '숙련자 머릿속 규칙을 코드로 옮기되, 거래처와 인증기관이 믿고 보는 원본 엑셀 양식은 100% 그대로 살려야 했습니다. 제가 4년간 일한 도메인이라 규칙이 손에 익었고, 발주·품질·실측 담당자와 직접 이야기하며 시간이 가장 많이 새는 지점을 먼저 짚었습니다.',
-        en: 'I had to move the veterans’ rules into code while keeping the original Excel forms, the ones clients and certifiers trust, 100% intact. It was my own domain for four years, so the rules were second nature, and I talked directly with the ordering, QC and field staff to first pin down where time leaked most.',
+        ko: '숙련자 머릿속 규칙을 코드로 옮기되, 거래처와 인정기관이 믿고 보는 원본 엑셀 양식은 100% 그대로 살려야 했습니다. 제가 방화셔터를 설계하고 건설 현장 시공을 관리한 4년 반 동안 다룬 도메인이라 규칙이 손에 익었고, 발주·품질·실측 담당자와 직접 이야기하며 시간이 가장 많이 새는 지점을 먼저 짚었습니다.',
+        en: 'I had to move the veterans’ rules into code while keeping the original Excel forms, the ones clients and the approval body trust, 100% intact. It was my own domain for four and a half years, so the rules were second nature, and I talked directly with the ordering, QC and field staff to first pin down where time leaked most.',
       },
       action: {
         ko: '7개 모델 제작 규칙을 규칙 엔진으로 코드화하고, 발주·품질·실측 담당자와 소통해 끝단에서 품질관리서·납품확인서를 현장 수량·사이즈와 대조하던 수작업을 자동화했습니다. 견적→발주→승인→품질→작업지시→실측을 하나로 잇는 추적 구조에 실시간 사내 메신저까지 붙였습니다.',
