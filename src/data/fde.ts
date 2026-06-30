@@ -182,11 +182,11 @@ export const dossiers: Dossier[] = [
       en: 'The field doesn’t want a bigger model — it wants a tool that keeps code in-house and never asserts a wrong answer. Trust comes from verification, not model size.',
     },
     shipped: {
-      ko: '100% 로컬에서 도는 ReAct 코딩 에이전트. 실행 오라클·다양관점 judge·적대적 교차검증·abstention을 묶은 검증 게이트가 척추이고, RAG·경험 메모리·QLoRA로 자기개선합니다.',
+      ko: '100% 로컬에서 도는 코딩 에이전트. 코드를 실제 실행한 결과·여러 관점의 교차 검토·답을 반박해 깨뜨려 보는 검토·확신 없으면 보류를 묶은 검증 단계가 핵심이고, 관련 코드 검색·경험 기억·직접 파인튜닝(QLoRA)으로 스스로 좋아집니다.',
       en: 'A 100%-local ReAct coding agent whose spine is a verification gate — execution oracle, multi-lens judges, an adversarial cross-exam and abstention — improving itself via RAG, experience memory and QLoRA.',
     },
     outcome: {
-      ko: '생성 정확도 94%(16/17, 3회 동일), 자신 없을 때 실제로 답을 보류함을 라이브 검증, 7B QLoRA를 RTX 5070(Blackwell)에서 학습 검증(loss 1.04). pytest 198·mypy strict·CI로 GitHub 공개.',
+      ko: '생성 정확도 94%(16/17, 3회 동일), 자신 없을 때 실제로 답을 보류함을 라이브 검증, 7B 모델 직접 파인튜닝(QLoRA)을 RTX 5070(Blackwell)에서 학습 검증(loss 1.04). pytest 198·mypy strict·CI로 GitHub 공개.',
       en: '94% generation accuracy (16/17, identical across 3 runs), live-verified abstention when unsure, and 7B QLoRA proven to train on an RTX 5070 (Blackwell, loss 1.04). Published on GitHub with 198 pytest, mypy --strict and CI.',
     },
     competencies: ['immersion', 'measure', 'ownership'],
@@ -206,11 +206,11 @@ export const dossiers: Dossier[] = [
         en: 'Instead of a bigger model I chose trust-by-verification: actually run the answer, scrutinize it from independent angles, try to break it, and abstain when still unsure — enough to make even a small local model trustworthy.',
       },
       action: {
-        ko: 'Claude Code류 에이전트의 두뇌(ReAct 루프·도구·권한·검증 게이트)를 직접 구현했습니다. 답 전에 ①코드 실행(테스트·타입·린트)을 진실로 삼고 ②다양관점 judge와 적대적 교차검증(보이지 않는 논쟁)을 거쳐 ③확신 없으면 abstain하게 했습니다. 또 기존 바이브코딩 프로젝트 코드를 RAG로 인덱싱·분석해 학습시키고, 언어·프레임워크 docs를 184장 레퍼런스로 사전 학습시켰으며, 검증 통과분만 기억하는 메모리와 7B QLoRA까지 검증했습니다.',
+        ko: 'Claude Code류 에이전트의 두뇌(추론·행동 루프, 도구·권한 제어, 검증 단계)를 직접 구현했습니다. 답 전에 ①코드 실행(테스트·타입·린트)을 정답 기준으로 삼고 ②여러 관점의 교차 검토와 답을 반박해 깨뜨려 보는 검토(보이지 않는 논쟁)를 거쳐 ③확신 없으면 보류하게 했습니다. 또 기존에 만든 프로젝트 코드를 검색해 참고하도록 학습시키고, 언어·프레임워크 사용법(docs)을 184장 레퍼런스로 사전 학습시켰으며, 검증 통과분만 기억하는 메모리와 7B 모델 직접 파인튜닝(QLoRA)까지 검증했습니다.',
         en: 'I built the agent’s brain myself — ReAct loop, tools, permissions, verification gate. Before answering it ①treats code execution (tests·types·lint) as ground truth, ②runs multi-lens judges and an adversarial cross-exam (a hidden debate), and ③abstains when unsure. It also learns from my own vibe-coded projects via RAG indexing, is pre-loaded with a 184-card reference of language/framework docs, remembers only verified solutions, and I validated 7B QLoRA fine-tuning end to end.',
       },
       result: {
-        ko: '생성 정확도 94%(16/17, 3회 반복 동일)·도구 유효성 85~87%를 실측했고, 게이트가 자신 없을 때 실제로 답을 보류함을 라이브로 확인했습니다. 파인튜닝은 RTX 5070(Blackwell)에서 학습이 도는 것을 검증(loss 1.04)했고, pytest 198·mypy strict·CI를 갖춰 GitHub에 공개했습니다.',
+        ko: '생성 정확도 94%(16/17, 3회 반복 동일)·도구 사용 정확도 85~87%를 실측했고, 검증 단계가 자신 없을 때 실제로 답을 보류함을 라이브로 확인했습니다. 파인튜닝은 RTX 5070(Blackwell)에서 학습이 도는 것을 검증(loss 1.04)했고, pytest 198·mypy strict·CI를 갖춰 GitHub에 공개했습니다.',
         en: 'Measured 94% generation accuracy (16/17, identical across 3 runs) and 85–87% tool validity, and live-confirmed that the gate actually withholds answers when unsure. Fine-tuning was proven to run on an RTX 5070 (Blackwell, loss 1.04), and it ships on GitHub with 198 pytest, mypy --strict and CI.',
       },
     },
@@ -224,11 +224,11 @@ export const dossiers: Dossier[] = [
       title: { ko: '요청에서 검증된 답까지', en: 'From a request to a verified answer' },
       nodes: [
         { id: 'g1', label: { ko: '요청', en: 'Request' } },
-        { id: 'g2', label: { ko: '난이도 라우팅 (7B↔30B)', en: 'Difficulty routing (7B↔30B)' }, emphasis: true },
-        { id: 'g3', label: { ko: 'RAG + 검증 메모리', en: 'RAG + verified memory' } },
-        { id: 'g4', label: { ko: '생성 · best-of-N', en: 'Generate · best-of-N' }, emphasis: true },
-        { id: 'g5', label: { ko: '검증: 실행+judge+적대자', en: 'Verify: exec + judges + adversary' }, emphasis: true },
-        { id: 'g6', label: { ko: '전달 or 보류(abstain)', en: 'Deliver or abstain' }, emphasis: true },
+        { id: 'g2', label: { ko: '난이도에 따라 모델 선택 (7B↔30B)', en: 'Difficulty routing (7B↔30B)' }, emphasis: true },
+        { id: 'g3', label: { ko: '관련 코드 검색 + 검증 기억', en: 'RAG + verified memory' } },
+        { id: 'g4', label: { ko: '여러 답안 생성·선택', en: 'Generate · best-of-N' }, emphasis: true },
+        { id: 'g5', label: { ko: '검증: 실행·교차검토·반론', en: 'Verify: exec + judges + adversary' }, emphasis: true },
+        { id: 'g6', label: { ko: '전달 or 보류', en: 'Deliver or abstain' }, emphasis: true },
       ],
     },
     deploy: {
