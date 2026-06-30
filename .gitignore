@@ -3,3 +3,9 @@ dist
 *.tsbuildinfo
 .DS_Store
 .vite
+
+# secrets / local env (never commit)
+.env
+.env.local
+.env.*.local
+*.local
