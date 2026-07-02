@@ -120,7 +120,7 @@ export default function DossierCard({ d }: { d: Dossier }) {
           <div className="grid-field absolute inset-0 opacity-50" />
           <div className="relative flex items-center justify-between border-b border-paper/10 px-5 py-2.5">
             <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-paper/60">
-              DEPLOYMENT DOSSIER · {d.index}
+              CASE STUDY · {d.index}
             </span>
             <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/30">
               {d.id}

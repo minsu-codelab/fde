@@ -25,7 +25,7 @@ export default function Domains() {
             >
               <div className="flex items-center justify-between font-mono text-[12px] uppercase tracking-[0.22em] text-paper/30">
                 <span className="text-signal/70">{d.code}</span>
-                <span className="opacity-0 transition-opacity group-hover:opacity-100">→ dossier</span>
+                <span className="opacity-0 transition-opacity group-hover:opacity-100">→ case study</span>
               </div>
 
               <div className="mt-5 font-display text-xl font-semibold tracking-tight">

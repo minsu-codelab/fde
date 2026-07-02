@@ -81,7 +81,7 @@ const ko: Dict = {
     thesis: '관점',
     model: '역량',
     domains: '도메인',
-    dossiers: '배포 도식',
+    dossiers: '사례',
     contact: '연락',
   },
   hero: {
@@ -97,7 +97,7 @@ const ko: Dict = {
     body: [
       'Forward Deployed Engineer는 제품을 들고 고객 현장에 들어가, 그들이 실제로 일하는 방식을 이해하고, 핵심 제품과 현장의 복잡한 현실 사이를 잇는 사람입니다. 코드를 짜는 게 아니라 결과를 만드는 게 일입니다.',
       '저는 4년 반 동안 방화셔터를 설계하고 건설 현장에서 그 설치를 관리하는 PM으로 일하며 문제를 정의하고 풀었고, 그 현장을 코드로 옮기고 싶어 개발자가 됐습니다. 그래서 제가 잘하는 건 분명합니다. 낯선 도메인에 빠르게 들어가 현장의 언어로 문제를 듣고, 숫자로 답하는 산출물을 배포하고, 운영까지 책임지는 일입니다.',
-      '아래 7개의 배포 도식은 같은 프로젝트를 “무엇을 만들었나”가 아니라 “어떤 현장에 들어가 무엇을 바꿨나”의 관점으로 다시 풀어낸 기록입니다.',
+      '아래 7개의 사례는 같은 프로젝트를 “무엇을 만들었나”가 아니라 “어떤 현장에 들어가 무엇을 바꿨나”의 관점으로 다시 풀어낸 기록입니다.',
     ],
     pathLabel: '현장에서 코드로 온 길',
     path: [
@@ -130,8 +130,8 @@ const ko: Dict = {
     userPrefix: '사용자',
   },
   dossiers: {
-    label: '배포 도식',
-    heading: 'Deployment Dossiers',
+    label: '프로젝트 사례',
+    heading: 'Case Studies',
     note: '프로젝트 7종을 FDE 관점으로 다시 봤습니다. 도메인, 현장의 현실, 거기서 얻은 통찰, 배포물, 그리고 책임진 성과와 PAAR.',
     flagship: 'FLAGSHIP DEPLOYMENT',
     deployed: 'DEPLOYED',
@@ -176,7 +176,7 @@ const en: Dict = {
     thesis: 'Thesis',
     model: 'Model',
     domains: 'Domains',
-    dossiers: 'Dossiers',
+    dossiers: 'Case Studies',
     contact: 'Contact',
   },
   hero: {
@@ -192,7 +192,7 @@ const en: Dict = {
     body: [
       'A Forward Deployed Engineer goes into the customer’s world with the product, learns how they actually work, and bridges the core product and the tangled reality on the ground. The job isn’t to write code. It’s to produce the outcome.',
       'I spent four and a half years designing fire shutters and managing their installation on construction sites as a PM, defining and solving real problems, and became a developer to put that work into code. So I know what I’m good at: going fast into an unfamiliar domain, hearing the problem in its own language, shipping an artifact that answers in numbers, and owning the operation.',
-      'The seven dossiers below retell the same projects not as “what I built,” but as “which field I went into and what I changed.”',
+      'The seven case studies below retell the same projects not as “what I built,” but as “which field I went into and what I changed.”',
     ],
     pathLabel: 'From the field to code',
     path: [
@@ -225,8 +225,8 @@ const en: Dict = {
     userPrefix: 'User',
   },
   dossiers: {
-    label: 'Dossiers',
-    heading: 'Deployment Dossiers',
+    label: 'Case Studies',
+    heading: 'Case Studies',
     note: 'Seven projects retold through the FDE lens: the domain, the reality on the ground, the insight it gave, what shipped, the outcome owned, and PAAR.',
     flagship: 'FLAGSHIP DEPLOYMENT',
     deployed: 'DEPLOYED',
